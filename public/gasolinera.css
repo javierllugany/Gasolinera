@@ -1,0 +1,74 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: rgb(170, 170, 170);
+  display:grid;
+  grid-template-areas: "cielo cielo cielo"
+                      "entrada gasolinera salida"
+                      "agua agua agua";
+  grid-template-columns: 0.5fr 5fr 0.5fr;
+  grid-template-rows: 10vh 80vh 10vh;
+}
+#calleEntrada{
+  grid-area: entrada;
+}
+#calleSalida{
+  grid-area: salida;
+}
+#gasolinera{
+  grid-area: gasolinera;
+  background-color: rgb(3, 113, 21);
+  display: grid;
+  grid-template-areas: "espera carga conmutador";
+  padding: 10vh;
+}
+#zonaDeEspera{
+  grid-area: espera;
+  background-color: rgb(88, 160, 194);
+}
+#divZonaDeBombas{
+  grid-area: carga;
+  background-color: rgb(198, 196, 16);
+  display: grid;
+  justify-content: center;
+}
+#zonaConmutador{
+  grid-area: conmutador;
+  background-color: rgb(135, 227, 175);
+}
+
+.cartel{
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.coche{
+  width: 5vw;
+  height: 3vh;
+  background-color: #997813;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3vh;
+  margin: 2vw;
+}
+
+.bomba{
+  width: 25vw;
+  height: 3vh;
+  background-color: #c46223;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3vh;
+  margin: 2vw;
+}
+
+#iniciar{
+  display: block;
+  font-size: 1em;
+  margin-right: auto;
+  margin-left: auto;
+}
