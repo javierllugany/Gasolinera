@@ -9,7 +9,7 @@ const template = function(dataFrontpage){
       <link rel="stylesheet" href="/public/gasolinera.css">
     </head>
     <body>
-      <div id="calleEntrada" class="cartel">Calle</div>
+      <div id="calleEntrada" class="cartel">Entrada</div>
       <div id="gasolinera">
         <div id="zonaDeEspera" class="cartel">Zona de Espera</div>
         <div id="divZonaDeBombas" class="zonaDeBombas cartel">Zona de Bombas</div>
@@ -20,7 +20,7 @@ const template = function(dataFrontpage){
           <div id="conmutadorGasolinera" class="conmutador cartel"></div>
         </div>
       </div>
-      <div id="calleSalida" class="cartel">Calle</div>
+      <div id="calleSalida" class="cartel">Salida</div>
     </body>
     <script src='/public/gasolinera.js'></script>
   </html>

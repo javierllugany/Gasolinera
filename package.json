@@ -1,0 +1,22 @@
+{
+  "name": "gasolinera",
+  "version": "1.0.0",
+  "description": "Ejercicio para obtener datos de un simulador",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javierllugany/Gasolinera.git"
+  },
+  "author": "Javier Llugany",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javierllugany/Gasolinera/issues"
+  },
+  "homepage": "https://github.com/javierllugany/Gasolinera#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

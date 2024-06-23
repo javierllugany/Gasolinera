@@ -60,17 +60,17 @@ let estacion={};
       this.bombasEnServicio=numeroDeBombas;
       estacion.filaEsperaParaCarga=[];
       estacion.coches= [
-        {nombre: "coche1", estadoTanque:15, capacidad:60, llegaAlServicioEnS: 1, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche2", estadoTanque:25, capacidad:70, llegaAlServicioEnS: 10, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche3", estadoTanque:13, capacidad:60, llegaAlServicioEnS: 20, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche4", estadoTanque:10, capacidad:50, llegaAlServicioEnS: 25, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche5", estadoTanque:11, capacidad:60, llegaAlServicioEnS: 30, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche6", estadoTanque:5, capacidad:50, llegaAlServicioEnS: 45, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche7", estadoTanque:18, capacidad:70, llegaAlServicioEnS: 60, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche8", estadoTanque:30, capacidad:70, llegaAlServicioEnS: 80, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche9", estadoTanque:42, capacidad:80, llegaAlServicioEnS: 85, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche10", estadoTanque:20, capacidad:60, llegaAlServicioEnS: 100, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
-        {nombre: "coche11", estadoTanque:30, capacidad:60, llegaAlServicioEnS: 120, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car1", estadoTanque:15, capacidad:60, llegaAlServicioEnS: 1, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car2", estadoTanque:25, capacidad:70, llegaAlServicioEnS: 10, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car3", estadoTanque:13, capacidad:60, llegaAlServicioEnS: 20, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car4", estadoTanque:10, capacidad:50, llegaAlServicioEnS: 25, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car5", estadoTanque:11, capacidad:60, llegaAlServicioEnS: 30, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car6", estadoTanque:5, capacidad:50, llegaAlServicioEnS: 45, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car7", estadoTanque:18, capacidad:70, llegaAlServicioEnS: 60, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car8", estadoTanque:30, capacidad:70, llegaAlServicioEnS: 80, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car9", estadoTanque:42, capacidad:80, llegaAlServicioEnS: 85, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car10", estadoTanque:20, capacidad:60, llegaAlServicioEnS: 100, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car11", estadoTanque:30, capacidad:60, llegaAlServicioEnS: 120, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
       ];
       estacion.filaEmpiezaACargar=[];
       estacion.saleCocheACalle=[];
@@ -109,7 +109,7 @@ let estacion={};
       //console.log(estacion.coches);
       divCochesEnCalle=document.createElement("div");
       h=i+1;
-      divCochesEnCalle.setAttribute('id', 'coche' + h);
+      divCochesEnCalle.setAttribute('id', 'Car' + h);
       divCochesEnCalle.textContent=estacion.coches[i].nombre;
       divCochesEnCalle.classList.add('coche');
       var calleEntrada=document.getElementById("calleEntrada");
