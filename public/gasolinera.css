@@ -27,18 +27,22 @@ body{
       "espera   carga   ";
   padding: 2vh;
   grid-template-rows: 1fr 2fr;
+  grid-template-columns: 30% 70%;
   grid-gap: 1vw;
 }
 #zonaDeEspera{
   grid-area: espera;
   background-color: rgb(88, 160, 194);
-  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  justify-content: center;
+  grid-template-columns:  1fr 1fr;
 }
 #divZonaDeBombas{
   grid-area: carga;
   background-color: rgb(198, 196, 16);
   display: grid;
   justify-content: center;
+  grid-template-columns:  1fr 1fr 1fr;
 }
 #zonaConmutador{
   grid-area: conmutador;
@@ -62,17 +66,20 @@ body{
   vertical-align: middle;
   line-height: 3vh;
   margin: 2vw;
+  margin-top: 0;
+  justify-self: center;
 }
 
 .bomba{
   width: 10vw;
   height: 3vh;
-  background-color: #c46223;
+  background-color: #238fc4;
   color: white;
   text-align: center;
   vertical-align: middle;
   line-height: 3vh;
   margin: 2vw;
+  justify-self: center;
 }
 
 #iniciar{
@@ -80,4 +87,27 @@ body{
   font-size: 1em;
   margin-right: auto;
   margin-left: auto;
+}
+
+#reIniciar{
+  display: none;
+  font-size: 1em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (orientation: portrait) {
+
+  #gasolinera {
+    grid-template-areas:
+        "conmutador"
+        "espera  "
+        "carga   ";
+    grid-template-rows: 1fr 1fr 3fr;
+    grid-template-columns: auto;
+  }
+
+  #zonaDeEspera {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

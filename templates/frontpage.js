@@ -16,6 +16,7 @@ const template = function(dataFrontpage){
         <div id="zonaConmutador" class="zonaConmutador cartel">Conmutador
           <div id="reloj" class="conmutador cartel">00:00</div>
           <input type="button" id="iniciar" name="" value="INICIAR TURNO" onclick="simulador.simular()">
+          <input type="button" id="reIniciar" name="" value="REINICIAR TURNO" onclick="location.reload()">
           <div id="conmutadorEspera" class="conmutador cartel"></div>
           <div id="conmutadorGasolinera" class="conmutador cartel"></div>
         </div>

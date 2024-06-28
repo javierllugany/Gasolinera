@@ -1,3 +1,4 @@
+
  /*stack
 
 un stack es una variable en donde guardamos más variables. pero un stack tiene
@@ -60,7 +61,7 @@ let estacion={};
       this.bombasEnServicio=numeroDeBombas;
       estacion.filaEsperaParaCarga=[];
       estacion.coches= [
-        {nombre: "Car1", estadoTanque:15, capacidad:60, llegaAlServicioEnS: 1, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
+        {nombre: "Car1", estadoTanque:55, capacidad:60, llegaAlServicioEnS: 1, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
         {nombre: "Car2", estadoTanque:25, capacidad:70, llegaAlServicioEnS: 10, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
         {nombre: "Car3", estadoTanque:13, capacidad:60, llegaAlServicioEnS: 20, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
         {nombre: "Car4", estadoTanque:10, capacidad:50, llegaAlServicioEnS: 25, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
@@ -72,6 +73,10 @@ let estacion={};
         {nombre: "Car10", estadoTanque:20, capacidad:60, llegaAlServicioEnS: 100, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
         {nombre: "Car11", estadoTanque:30, capacidad:60, llegaAlServicioEnS: 120, tiempoTotalEnEspera:0, tiempoTotalEnGasolinera:0},
       ];
+      let botonIniciar=document.getElementById("iniciar");
+      botonIniciar.style.display="block";
+      let botonEmpezarDeNuevo=document.getElementById("reIniciar");
+      botonEmpezarDeNuevo.style.display="none";
       estacion.filaEmpiezaACargar=[];
       estacion.saleCocheACalle=[];
       estacion.htmlIniciandoBombas();
@@ -126,7 +131,6 @@ let estacion={};
          let entraCocheAEstacion=estacion.coches.shift();
          //console.log(entraCocheAEstacion);
          estacion.filaEsperaParaCarga.push(entraCocheAEstacion);
-         //console.log(estacion.filaEsperaParaCarga);
          let zonaDeEspera=document.getElementById("zonaDeEspera");
          var calleEntrada=document.getElementById("calleEntrada");
          //console.log(calleEntrada);
@@ -139,7 +143,6 @@ let estacion={};
    };
 
    estacion.empiezaACargar=function(){
-       //console.log(estacion.filaEsperaParaCarga.length);
        // let pasoAPaso12= "paso1.5";
        // console.log(pasoAPaso12, simulador.tiempoActual);
        if (estacion.filaEsperaParaCarga.length>0) {
@@ -151,20 +154,19 @@ let estacion={};
              // console.log(bombaVacia);
              // console.log(estacion.filaEsperaParaCarga);
              let cocheEmpiezaACargar=estacion.filaEsperaParaCarga.shift();
-             //console.log(cocheEmpiezaACargar);
              cocheEmpiezaACargar.tiempoTotalEnEspera=simulador.tiempoActual-cocheEmpiezaACargar.llegaAlServicioEnS;
              estacion.filaEmpiezaACargar.push(cocheEmpiezaACargar);
-             //console.log(estacion.filaEmpiezaACargar);
              this.zonaDeBombas[n].ocupada="full";
              //console.log(this.zonaDeBombas[n].ocupada);
              let htmlCocheEmpiezaACargar=zonaDeEspera.firstElementChild;
              g=n+1;
              let bombaDeCarga=document.getElementById("bomba"+g);
              //console.log(bombaDeCarga);
-             //let tiempoDeCarga=cocheEmpiezaACargar.capacidad-cocheEmpiezaACargar.estadoTanque;
-             //let limiteCarga=this.zonaDeBombas[n].tiempoInicioCarga+tiempoDeCarga;
+             //bombaDeCarga.textContent="Bomba "+g+" Cargando";
+             bombaDeCarga.textContent="CARGANDO";
+             bombaDeCarga.style.color="red";
+             bombaDeCarga.style.fontSize= "75%";
 
-             bombaDeCarga.textContent="Bomba "+g+" Cargando";
              bombaDeCarga.appendChild(htmlCocheEmpiezaACargar);
              //console.log(bombaDeCarga);
              this.cocheEnBomba=cocheEmpiezaACargar;
@@ -176,10 +178,28 @@ let estacion={};
            };
          };
        }
+        for (var i = 0; i < this.zonaDeBombas.length; i++) {
+          if (this.zonaDeBombas[i].ocupada==="full") {
+              j=i+1;
+              let bombaDeCargaTexto=document.getElementById("bomba"+j);
+              let htmlCocheCargando=bombaDeCargaTexto.children[0];
+              console.log(bombaDeCargaTexto.textContent);
+              if (bombaDeCargaTexto.textContent.includes('Bomba')) {
+                 bombaDeCargaTexto.textContent="CARGANDO";
+                 bombaDeCargaTexto.style.color="red";
+                 bombaDeCargaTexto.style.fontSize= "75%";
+                 bombaDeCargaTexto.appendChild(htmlCocheCargando);
+              } else {
+                 bombaDeCargaTexto.textContent="Bomba "+j;
+                 bombaDeCargaTexto.style.color="white";
+                 bombaDeCargaTexto.style.fontSize= "75%";
+                 bombaDeCargaTexto.appendChild(htmlCocheCargando);
+              }
+        }
+     }
           estacion.terminaCarga();
        //setTimeout('estacion.tiempoCarga()',500);
      };
-
 
   estacion.terminaCarga= function(){
    // let pasoAPaso2= "paso2";
@@ -188,7 +208,6 @@ let estacion={};
       if (estacion.filaEmpiezaACargar[i].llegaAlServicioEnS+estacion.filaEmpiezaACargar[i].tiempoTotalEnEspera+estacion.filaEmpiezaACargar[i].capacidad-estacion.filaEmpiezaACargar[i].estadoTanque === simulador.tiempoActual
         || estacion.filaEmpiezaACargar[i].llegaAlServicioEnS+estacion.filaEmpiezaACargar[i].tiempoTotalEnEspera+estacion.filaEmpiezaACargar[i].capacidad-estacion.filaEmpiezaACargar[i].estadoTanque < simulador.tiempoActual) {
         let cocheACalle = this.filaEmpiezaACargar.splice(i, 1);
-        console.log(cocheACalle);
         let cocheSale=cocheACalle.shift();
         cocheSale.tiempoTotalEnGasolinera=simulador.tiempoActual-cocheSale.llegaAlServicioEnS;
         estacion.saleCocheACalle.push(cocheSale);
@@ -206,6 +225,7 @@ let estacion={};
             this.zonaDeBombas[u].ocupada=null;
             z=u+1;
             bombaVacia[u].textContent="Bomba "+z;
+            bombaVacia[u].style.color="white";
             //console.log(this.zonaDeBombas);
             //console.log(estacion.saleCocheACalle);
           }
@@ -235,6 +255,10 @@ let estacion={};
     let htmlGasolineraConmutador=document.getElementById("conmutadorGasolinera");
     htmlEsperaConmutador.textContent="Promedio Tiempo de Espera: "+promedioEspera.toFixed(2);
     htmlGasolineraConmutador.textContent="Promedio Tiempo Total En Gasolinera: "+promedioEnGasolinera.toFixed(2);
+    let botonIniciar=document.getElementById("iniciar");
+    botonIniciar.style.display="none";
+    let botonEmpezarDeNuevo=document.getElementById("reIniciar");
+    botonEmpezarDeNuevo.style.display="block";
   };
 
     // para ejecutar cada segundo lo puedes usar la proxima funcion:
