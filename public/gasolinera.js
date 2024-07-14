@@ -270,7 +270,7 @@ let estacion={};
           simulador.tiempoActual++
           let htmlReloj=document.getElementById("reloj");
           htmlReloj.textContent=simulador.tiempoActual+" segundos";
-          if(this.tiempoMax<=simulador.tiempoActual && estacion.filaEmpiezaACargar.length===0){
+          if(this.tiempoMax<=simulador.tiempoActual && estacion.filaEmpiezaACargar.length===0 && estacion.filaEsperaParaCarga.length===0 && estacion.coches.length===0){
               //termina la simulacion - si quieres puedes entrar codigo aqui
               //ejemplo: estacion.termina(tiempoActual)
               estacion.termina(simulador.tiempoActual)
